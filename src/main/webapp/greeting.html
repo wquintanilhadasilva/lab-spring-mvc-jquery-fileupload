@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="'Hello, ' + ${name} + '!'" />
+    
+    <form>
+    	<input type="file" name="file" id="fileLoader" /> 
+    	<p/>
+		<input type="button" id="fileSubmit" value="Upload"/>
+    </form>
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.serializejson.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.fileupload.js"></script>
+    <script src="js/jquery-lab.js"></script>
+    
+</body>
+</html>

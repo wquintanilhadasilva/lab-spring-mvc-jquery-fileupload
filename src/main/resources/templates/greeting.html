@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Getting Started: Serving Web Content</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+</head>
+<body>
+	<p th:text="'Hello, ' + ${name} + '!'" />
+	
+	
+	
+	<div class="ng-scope">
+	<div class="row">
+		<div class="col-md-12">
+			<!-- FORM -->
+			<form class="form-horizontal" method="post" action="#" id="faleConoscoForm" name="faleConoscoForm" novalidate enctype="multipart/form-data">
+				<hr><strong>DADOS DO SOLICITANTE</strong><hr>
+
+				<!-- Solicitante -->
+				<div class="form-group control-group">
+					<label for="solicitanteInput">Solicitante <span>*</span></label>
+					<input id="solicitanteInput" name="nomeSolicitante" type="text" class="span10 input-form" data-rule-required="true" maxlength="80" />
+				</div>
+
+				<!-- CPF -->
+				<div class="form-group control-group">
+					<label for="cpfInput">CPF <span>*</span></label>
+					<input id="cpfInput" name="cpf" required data-rule-cpf="true" type="text" class="input-form">
+				</div>
+
+				<!-- Logradouro -->
+				<div class="form-group control-group">
+					<label for="enderecoInput">Endereço(logradouro) <span>*</span></label> 
+					<input id="enderecoInput" name="logradouro" type="text" class="span10 input-form ng-dirty" required maxlength="80" />
+				</div>
+				<div class="controls-row">
+					<!-- Bairro -->
+					<div class="form-group span5 control-group">
+						<label for="bairroInput">Bairro <span>*</span></label>
+						<input id="bairroInput" name="bairro" type="text" class="input-large input-form" required maxlength="80" >
+					</div>
+
+					<!-- UF -->
+					<div class="form-group span7 control-group">
+						<label for="ufInput">UF <span>*</span></label> 
+						<select id="ufInput" name="uf" class=" input-form" required >
+							<option value="">Selecione</option>
+							<option value="AC">Acre</option>
+							<option value="AL">Alagoas</option>
+							<option value="AP">Amapa</option>
+							<option value="AM">Amazonas</option>
+							<option value="BA">Bahia</option>
+							<option value="CE;">Cear&aacute;</option>
+							<option value="DF">Distrito Federal</option>
+							<option value="ES">Esp&iacute;rito Santo</option>
+							<option value="GO">Goi&aacute;s</option>
+							<option value="MA">Maranh&atilde;o</option>
+							<option value="MT">Mato Grosso</option>
+							<option value="MS">Mato Grosso do Sul</option>
+							<option value="MG">Minas Gerais</option>
+							<option value="PA">Par&aacute;</option>
+							<option value="PB">Para&iacute;ba</option>
+							<option value="PR;">Paran&aacute;</option>
+							<option value="PE">Pernambuco</option>
+							<option value="PI">Piau&iacute;</option>
+							<option value="RJ">Rio de Janeiro</option>
+							<option value="RN">Rio Grande do Norte</option>
+							<option value="RS">Rio Grande do Sul</option>
+							<option value="RO">Rond&ocirc;nia</option>
+							<option value="RR">Roraima</option>
+							<option value="SC">Santa Catarina</option>
+							<option value="SP">S&atilde;o Paulo</option>
+							<option value="SE">Sergipe</option>
+							<option value="TO">Tocantins</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- Complemento -->
+				<div class="form-group control-group">
+					<label for="complementoInput">Complemento <span>*</span></label>
+					<input id="complementoInput" name="complemento" type="text" required class="span10 input-form" maxlength="80"/>
+				</div>
+
+				<hr>
+				<strong>DADOS DA SOLICITACAO</strong>
+				<hr>
+
+				<!-- Descricao -->
+				<div class="form-group control-group">
+					<label for="descricaoInput">Descrição <span>*</span></label>
+					<textarea rows="6" class="span10" id="descricao" name="descricao" data-rule-required="true"></textarea>
+				</div>
+				<br>
+				
+				<!-- <input name="files" type="file" multiple="multiple" /> -->
+				<div id="fileupload">
+					<span class="btn btn-success fileinput-button"> 
+						<i class="glyphicon icon-plus"></i> <span>Anexar arquivos</span>
+						<input type="file" name="file" id="fileLoader" />
+					</span>
+					
+					<div class="messageFiles"></div>
+					
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th class="text-center">Arquivo</th>
+								<th class="text-center">Ação</th>
+							</tr>
+						</thead>
+						<tbody id="tbody">
+						</tbody>
+					</table>
+				</div>
+
+				<div class="blue">
+					<p>Para os pedidos de vistas e cópias de processo, são
+						necessárias as seguintes informações:</p>
+					<ol>
+						<li>Usuário declarar se é interessado direto no processo, ou
+							seja, pessoa física ou jurídica, titular de direitos ou no
+							exercício do direito de representação;</li>
+						<li>Informar o número do processo ou petição o qual deseja
+							cópia ou vista;</li>
+						<li>Em caso de cópia, informar se há restrição em receber a
+							cópia do documento em meio digital (CD).</li>
+					</ol>
+					<p>Para os casos de pedidos de vistas e cópias de processos dos
+						interessados diretos das empresas do setor regulado, solicitamos
+						que seja informado o e-mail corporativo da empresa. Para maiores
+						informações sobre os procedimentos para vistas e cópias, acesse o
+						banner "Acesso a Informação" no portal da Anvisa.</p>
+				</div>
+				<div class="red">
+					Caso represente uma empresa, favor informar nesse campo qual é a
+					empresa (razão social) e qual a função que exerce. Comunicamos que
+					há informações que só poderão ser fornecidas ao representante legal
+					ou ao responsável técnico da empresa. <br>
+				</div>
+				<br />
+				<div class="pull-right">
+					<button type="reset" class="btn btn-primary limpar-form">Limpar</button>
+					<button type="submit" class="btn btn-primary">Cadastrar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+	
+
+	<form>
+		
+	</form>
+
+	
+
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.serializejson.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/jquery.fileupload.js"></script>
+	<script src="js/jquery-lab.js"></script>
+
+</body>
+</html>
