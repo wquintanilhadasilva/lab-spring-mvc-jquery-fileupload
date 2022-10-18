@@ -57,6 +57,7 @@ $(function() {
 				console.log(result);
 				files.push(result);
 				tableAddRow(result);
+				$('#fileLoader').val('');
             },
             error: function(jqxhr, textStatus, errThrown){
                 console.log(textStatus);
