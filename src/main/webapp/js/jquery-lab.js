@@ -97,7 +97,11 @@ $(function() {
 		$('#tbody').append(`
 		<tr>
           <td class="row-index text-center">
-              <p>${data.nome}</p></td>
+              <p>${data.nome}</p>
+		  </td>
+		  <td class="row-index text-center">
+              <p>${data.size}</p>
+		  </td>
        	  <td class="text-center">
               <button id="${rowIdx++}" class="btn btn-danger remove" type="button">Remover</button>
           </td>

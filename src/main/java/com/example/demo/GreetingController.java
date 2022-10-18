@@ -57,6 +57,7 @@ public class GreetingController {
 		
 		Map<String, String> map = new HashMap<>();
 		map.put("nome", fileName);
+		map.put("size", String.valueOf(file.getSize()));
 		map.put("tempFileName", tmpFile);
 		
 		ObjectMapper mapper = new ObjectMapper();
